@@ -37,11 +37,16 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    # third_apps
+    'django_extensions',
+    "debug_toolbar",
+    # localApps
     'blog',
     'instagram'
 ]
 
 MIDDLEWARE = [
+    "debug_toolbar.middleware.DebugToolbarMiddleware",
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -120,8 +125,13 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
 
 STATIC_URL = '/static/'
-#STATIC_ROOT=''
+# STATIC_ROOT=''
 # 접근시에 사용
-MEDIA_URL='/media/'
+MEDIA_URL = '/media/'
 # 업로드 파일이 저장되는 경로
-MEDIA_ROOT=os.path.join(BASE_DIR,'media')
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+INTERNAL_IPS = [
+    # ...
+    "127.0.0.1",
+    # ...
+]
