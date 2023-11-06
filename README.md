@@ -41,3 +41,4 @@ MEDIA_ROOT=os.path.join(BASE_DIR,'media')`
 - 현재 request/response에 대한 다양한 디버깅 정보제공
 - https://django-debug-toolbar.readthedocs.io/en/latest/installation.html  
   따라 적용
+  - 웹페이지에 템플릿에 <body> 태그가 있어야 동작
