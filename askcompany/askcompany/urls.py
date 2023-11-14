@@ -6,7 +6,9 @@ from django.conf.urls.static import static
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('blog/', include('blog.urls')),
-    path('instagram/', include('instagram.urls'))
+    path('instagram/', include('instagram.urls')),
+    path('accounts/', include('accounts.urls'))
+
 ]
 # 미디어 파일 읽어오기
 if settings.DEBUG:

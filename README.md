@@ -36,7 +36,7 @@ MEDIA_ROOT=os.path.join(BASE_DIR,'media')`
 ## 정렬 지정하기
 
 - 정렬을 원하는 앱의 모델의 클래스에  
-  `class Meta:
+   `class Meta:
 ordering = ['-id']` 추가 예제는 id 역순
 
 ## django-debug-toolbar
@@ -62,3 +62,7 @@ ordering = ['-id']` 추가 예제는 id 역순
   - 어느 한쪽의 reverse_name 포기
   - 어느 한쪽 또는 FK의 reverse_name변경
     - ex)FK(User,..., related_name="reverse_name")
+
+# 1:1 관계정의
+
+- OneToOneField 필드사용
