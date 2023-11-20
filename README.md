@@ -66,3 +66,10 @@ ordering = ['-id']` 추가 예제는 id 역순
 # 1:1 관계정의
 
 - OneToOneField 필드사용
+
+# Many to Many Field
+
+- M:N 관계에서 어느쪽이라도 필드 지정가능
+  `class Tag(models.Model):
+  name = models.CharField(max_length=50, unique=True)
+  post_set = models.ManyToManyField(Post)`

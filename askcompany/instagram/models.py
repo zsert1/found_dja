@@ -7,6 +7,7 @@ class Post(models.Model):
         settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
     message = models.TextField()
     is_pubilc = models.BooleanField(default=False, verbose_name="공개여부")
+    tag_set = models.ManyToManyField('Tag', blank=True)
     create_at = models.DateTimeField(auto_now_add=True)
     update_at = models.DateTimeField(auto_now=True)
     photo = models.ImageField(
@@ -29,3 +30,11 @@ class Comment(models.Model):
     message = models.TextField()
     create_at = models.DateTimeField(auto_now_add=True)
     update_at = models.DateTimeField(auto_now=True)
+
+
+class Tag(models.Model):
+    name = models.CharField(max_length=50, unique=True)
+
+    def __str__(self):
+        return self.name
+#   post_set = models.ManyToManyField(Post)
