@@ -2,13 +2,17 @@
 
 장고 기본
 
-- conda activate askcompany
+- conda activate <프로젝트 이름>
 - python manage.py runserver
 - python manage.py <앱 이름>
 - 앱만든후 urls.py생성
 - 프로젝트 settings의 INSTALLED_APPS에 추가한 앱이름 추가
 - project의 url에 앱 url추가  
   `path('blog/',include('blog.urls')),`
+
+# 슈퍼계정 만들기
+
+- pyhon manage.py createsuperuser
 
 # 미디어 파일 등록 방법
 
@@ -71,5 +75,33 @@ ordering = ['-id']` 추가 예제는 id 역순
 
 - M:N 관계에서 어느쪽이라도 필드 지정가능
   `class Tag(models.Model):
-  name = models.CharField(max_length=50, unique=True)
-  post_set = models.ManyToManyField(Post)`
+name = models.CharField(max_length=50, unique=True)
+post_set = models.ManyToManyField(Post)`
+- RDBMS지만 , DB에 따라 NoSql기능도 지원
+
+### Migrations
+
+- 모델의 변경 내역을 “데이터 베이스 스키마”로 반영시키는 효율적인 방법을 제공 관련 명령어
+- 마이그레이션 파일생성
+
+```
+python manage,py makemigrations <앱이름>
+```
+
+- 지정 데이터 베이스 마이그레이션 적용
+
+```
+python manage,py migrate <앱이름>
+```
+
+- 마이그레이션 적용 현황 출력
+
+```
+python manage,py showmigrations <앱이름>
+```
+
+- 지정 마이그레이션의 SQL출력 내역
+
+```
+python manage,py sqlmigrate <앱이름> <마이그레이션-이름>
+```
