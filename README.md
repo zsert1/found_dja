@@ -85,23 +85,31 @@ post_set = models.ManyToManyField(Post)`
 - 마이그레이션 파일생성
 
 ```
-python manage,py makemigrations <앱이름>
+python manage.py makemigrations <앱이름>
 ```
 
 - 지정 데이터 베이스 마이그레이션 적용
 
 ```
-python manage,py migrate <앱이름>
+python manage.py migrate <앱이름>
 ```
 
 - 마이그레이션 적용 현황 출력
 
 ```
-python manage,py showmigrations <앱이름>
+python manage.py showmigrations <앱이름>
 ```
 
 - 지정 마이그레이션의 SQL출력 내역
 
 ```
-python manage,py sqlmigrate <앱이름> <마이그레이션-이름>
+python manage.py sqlmigrate <앱이름> <마이그레이션-이름>
 ```
+
+- 새로운 필드가 필수라면????
+
+  - makemigrations을 진행할 떄 어떠한 값이 들어갈지 물어본다
+  - 필드 타입에 맞추어 입력해야한다
+
+- 절대 하지말아야할것
+  - 팀 각자가 마이그레이션 파일을 생성 -> 충돌발생
