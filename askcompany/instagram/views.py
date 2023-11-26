@@ -1,7 +1,7 @@
-from django.http import HttpRequest, HttpResponse
+from django.http import HttpRequest, HttpResponse, Http404
 from .models import Post
-from django.shortcuts import render
-from django.views.generic import ListView
+from django.shortcuts import render, get_object_or_404
+from django.views.generic import ListView, DetailView
 # 클래스 기반 뷰 코드가 간결
 post_list = ListView.as_view(model=Post)
 #  함수 기반 view 확장성및 커스텀 기능 용이
@@ -22,10 +22,16 @@ post_list = ListView.as_view(model=Post)
 #     })
 
 
-def post_detail(request: HttpRequest, pk: int) -> HttpResponse:
-    response = HttpResponse()
-    response.write('Hello World')
-    return response
+# def post_detail(request: HttpRequest, pk: int) -> HttpResponse:
+#     post = get_object_or_404(pk=pk)
+
+#     # try:
+#     #     post = Post.objects.get(pk=pk)
+#     # except Post.DoesNotExist:
+#     #     raise Http404
+#     return render(request, 'instagram/post_detail.html', {'post': post})
+#  클래스 vieww
+post_detail = DetailView.as_view(model=Post)
 
 
 def archives_year(request, year):

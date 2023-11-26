@@ -113,3 +113,27 @@ python manage.py sqlmigrate <앱이름> <마이그레이션-이름>
 
 - 절대 하지말아야할것
   - 팀 각자가 마이그레이션 파일을 생성 -> 충돌발생
+
+### 클래스 기반뷰
+
+- 공통 기능들은 상속문법으로 처리 가능
+- view 함수를 만들어 주는 클래스
+- as_view()클래스 함수를 통해,View함수를 생성
+- 상속을 통해,여러 기능 믹스인
+
+- 함수 기반 뷰
+
+```
+def post_detail(request: HttpRequest, pk: int) -> HttpResponse:
+    post = get_object_or_404(pk=pk)
+    # try:
+    #     post = Post.objects.get(pk=pk)
+    # except Post.DoesNotExist:
+    #     raise Http404
+    return render(request, 'instagram/post_detail.html', {'post': post})
+```
+
+- 클래스 vieww
+  ```
+  post_detail = DetailView.as_view(model=Post)
+  ```
